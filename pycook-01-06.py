@@ -25,3 +25,25 @@ d = defaultdict(set)
 d['a'].add(1)
 d['a'].add(2)
 d['b'].add(4)
+
+"""
+defaultdict() will create a new key in the dictionary if it is accessed and 
+does not yet exist.
+
+To avoid this behaviour use the setdefault() method of a dictionary object
+"""
+
+d = {}
+d.setdefault('a',[]).append(1)
+d.setdefault('a',[]).append(2)
+d.setdefault('b',[]).append(4)
+
+pairs = {'key1':'value1', 'key2':'value2', 'key3':'value3'}
+pairs2 = {'key1':'value4', 'key2':'value5', 'key3':'value6'}
+d = defaultdict(list)
+for key in pairs:
+    d[key].append(pairs[key])
+for key in pairs2:
+    d[key].append(pairs2[key])
+
+print(d)
